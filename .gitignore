@@ -1,0 +1,60 @@
+# ----------------------------
+# 环境变量与本地密钥
+# ----------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------
+# Python
+# ----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# ----------------------------
+# Node / Vue / Vite
+# ----------------------------
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.vite/
+*.local
+
+# ----------------------------
+# IDE / OS
+# ----------------------------
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ----------------------------
+# 运行产物
+# ----------------------------
+logs/
+*.log
+uploads/
+backend/uploads/
+backend/static/uploads/
+mysql-data/
+
+# ----------------------------
+# 本地会话/备份文件
+# ----------------------------
+dsh-session-*.zip
+*.bak
