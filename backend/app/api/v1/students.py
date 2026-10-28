@@ -1,3 +1,5 @@
+import secrets
+
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import or_, select
 from sqlalchemy.orm import Session
@@ -8,9 +10,17 @@ from app.core.deps import (
     get_current_user,
     require_roles,
 )
+from app.core.security import hash_password
 from app.db.session import get_db
 from app.models import Room, RoomAssignment, Student, User
-from app.schemas import Page, StudentCreate, StudentOut, StudentUpdate
+from app.schemas import (
+    Page,
+    PasswordReset,
+    PasswordResetOut,
+    StudentCreate,
+    StudentOut,
+    StudentUpdate,
+)
 from app.services.common import commit_or_400, paginate
 from app.services.serializers import student_dict
 
@@ -122,6 +132,53 @@ def create_student(
     commit_or_400(db)
     db.refresh(item)
     return StudentOut.model_validate(student_dict(db, item))
+
+
+@router.post("/{student_id}/account", response_model=PasswordResetOut, summary="为学生创建登录账号")
+def create_student_account(
+    student_id: int,
+    payload: PasswordReset,
+    db: Session = Depends(get_db),
+    user: User = Depends(student_writer),
+) -> PasswordResetOut:
+    student = db.get(Student, student_id)
+    if student is None:
+        raise HTTPException(status_code=404, detail="学生不存在")
+    if student.user_id is not None:
+        raise HTTPException(status_code=400, detail="该学生已有登录账号")
+    if user.role == "building_admin":
+        allowed = building_ids_for_user(db, user)
+        room_ids = select(Room.id).where(Room.building_id.in_(allowed or set()))
+        exists = db.scalar(
+            select(RoomAssignment.id).where(
+                RoomAssignment.student_id == student.id,
+                RoomAssignment.room_id.in_(room_ids),
+                RoomAssignment.check_out_at.is_(None),
+            )
+        )
+        if not exists:
+            raise HTTPException(status_code=403, detail="无权为该学生创建账号")
+    if db.scalar(select(User).where(User.username == student.student_no)):
+        raise HTTPException(status_code=400, detail="学号已被其他账号使用")
+
+    generated = payload.password is None
+    password = payload.password or secrets.token_urlsafe(12)
+    account = User(
+        username=student.student_no,
+        password_hash=hash_password(password),
+        real_name=student.name,
+        role="student",
+        phone=student.phone,
+        status="active",
+    )
+    db.add(account)
+    db.flush()
+    student.user_id = account.id
+    commit_or_400(db)
+    return PasswordResetOut(
+        username=account.username,
+        initial_password=password if generated else None,
+    )
 
 
 @router.patch("/{student_id}", response_model=StudentOut, summary="修改学生档案")

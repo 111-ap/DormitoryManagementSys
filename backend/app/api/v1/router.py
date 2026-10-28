@@ -3,10 +3,12 @@ from fastapi import APIRouter
 from app.api.v1 import (
     assets,
     assignments,
+    attachments,
     auth,
     buildings,
     dashboard,
     departments,
+    excel,
     items,
     notices,
     notifications,
@@ -28,6 +30,8 @@ api_router.include_router(students.router)
 api_router.include_router(assignments.router)
 api_router.include_router(assets.router)
 api_router.include_router(repairs.router)
+api_router.include_router(attachments.router)
+api_router.include_router(excel.router)
 api_router.include_router(utilities.router)
 api_router.include_router(visitors.router)
 api_router.include_router(items.router)

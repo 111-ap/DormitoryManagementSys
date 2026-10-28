@@ -93,6 +93,15 @@ class UserBuildingsUpdate(BaseModel):
     building_ids: list[int]
 
 
+class PasswordReset(BaseModel):
+    password: str | None = Field(default=None, min_length=6, max_length=128)
+
+
+class PasswordResetOut(BaseModel):
+    username: str
+    initial_password: str | None = None
+
+
 # -------------------------
 # Organization
 # -------------------------
@@ -527,11 +536,11 @@ class AttachmentOut(ORMModel):
     biz_type: str
     biz_id: int
     file_name: str
-    file_path: str
     file_size: int
     mime_type: str | None
     uploaded_by: int
     created_at: datetime
+    download_url: str | None = None
 
 
 class DashboardOut(BaseModel):

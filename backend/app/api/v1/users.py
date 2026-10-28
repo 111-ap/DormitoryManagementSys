@@ -1,3 +1,5 @@
+import secrets
+
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
@@ -9,6 +11,8 @@ from app.models import Building, StaffBuilding, User
 from app.schemas import (
     Message,
     Page,
+    PasswordReset,
+    PasswordResetOut,
     UserBuildingsUpdate,
     UserCreate,
     UserOut,
@@ -85,6 +89,26 @@ def update_user(
     commit_or_400(db)
     db.refresh(user)
     return UserOut.model_validate(user)
+
+
+@router.post("/{user_id}/reset-password", response_model=PasswordResetOut, summary="管理员重置用户密码")
+def reset_password(
+    user_id: int,
+    payload: PasswordReset,
+    db: Session = Depends(get_db),
+    _: User = Depends(admin_only),
+) -> PasswordResetOut:
+    user = db.get(User, user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="用户不存在")
+    generated = payload.password is None
+    new_password = payload.password or secrets.token_urlsafe(12)
+    user.password_hash = hash_password(new_password)
+    commit_or_400(db)
+    return PasswordResetOut(
+        username=user.username,
+        initial_password=new_password if generated else None,
+    )
 
 
 @router.put("/{user_id}/buildings", response_model=Message, summary="设置员工负责楼栋")

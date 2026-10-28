@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app.models import (
     Asset,
     AssetCategory,
+    Attachment,
     Building,
     Department,
     ItemRecord,
@@ -278,4 +279,18 @@ def notice_dict(db: Session, notice: Notice) -> dict:
         "scope": notice.scope,
         "status": notice.status,
         "published_at": notice.published_at,
+    }
+
+
+def attachment_dict(attachment: Attachment) -> dict:
+    return {
+        "id": attachment.id,
+        "biz_type": attachment.biz_type,
+        "biz_id": attachment.biz_id,
+        "file_name": attachment.file_name,
+        "file_size": attachment.file_size,
+        "mime_type": attachment.mime_type,
+        "uploaded_by": attachment.uploaded_by,
+        "created_at": attachment.created_at,
+        "download_url": f"/api/v1/attachments/{attachment.id}",
     }

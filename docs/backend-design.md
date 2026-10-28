@@ -110,6 +110,9 @@ Vue3 / Axios
 | 物品 | `/items`、`/items/{id}/review` |
 | 公告 | `/notices`、归档 |
 | 通知 | `/notifications`、未读数、已读 |
+| 附件 | `/attachments`、上传、下载、删除 |
+| Excel | 学生/住宿模板、导入、学生/住宿/报修/账单/访客导出 |
+| 学生账号 | `/students/{id}/account`；管理员重置密码 `/users/{id}/reset-password` |
 | 统计 | `/dashboard` |
 | 系统 | `/health`、`/docs`、`/openapi.json` |
 
@@ -152,6 +155,38 @@ Vue3 / Axios
 - 充值是“创建订单 → 模拟支付 → 加余额 + 写流水”；
 - 所有余额变化都写入 `utility_transactions`。
 
+### 附件
+
+- 支持业务类型：`repair`、`visitor`、`item`、`notice`；
+- 上传时校验业务归属、图片扩展名、MIME、大小（默认 5MB）；
+- 文件按 `uploads/{biz_type}/{年}/{月}/{uuid}.{ext}` 保存；
+- 下载必须经过鉴权，不能直接暴露静态目录；
+- 访客证件照只允许宿舍管理人员下载；
+- 学生只能删除自己上传的附件。
+
+### Excel 导入导出
+
+导入：
+
+- `POST /excel/import/students`：学号、姓名、性别、院系编码、班级、手机号、是否舍长；
+- `POST /excel/import/assignments`：学号、楼栋编码、房间号、床位号、入住时间；
+- 全部行校验通过才入库，任意一行失败返回错误行号，不做部分导入；
+- 分配导入会校验学生是否有当前住宿、房间容量、性别限制和床位占用。
+
+导出：
+
+- 学生名单；
+- 住宿记录；
+- 报修记录；
+- 水电账单；
+- 访客记录；
+- 使用 `StreamingResponse` 直接返回 `.xlsx`。
+
+模板：
+
+- `GET /excel/templates/students`
+- `GET /excel/templates/assignments`
+
 ## 5. 当前实现状态
 
 - [x] 项目骨架、配置、数据库会话
@@ -165,9 +200,10 @@ Vue3 / Axios
 - [x] 首页统计
 - [x] 管理员初始化脚本
 - [x] 端到端冒烟测试
-- [ ] 报修照片/访客证件照上传接口
-- [ ] Excel 导入导出
-- [ ] 更完整的 pytest 测试集
+- [x] 报修照片/访客证件照上传、鉴权下载
+- [x] Excel 学生/宿舍分配导入与多类导出
+- [x] 学生账号创建、管理员重置密码
+- [ ] 更完整的 pytest 测试集（当前为脚本化冒烟测试）
 - [ ] 前端页面联调
 - [ ] Docker Compose
 

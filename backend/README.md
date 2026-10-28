@@ -52,11 +52,28 @@ cd backend
 ```bash
 cd backend
 .venv\Scripts\python.exe scripts\smoke_test.py
+.venv\Scripts\python.exe scripts\completion_test.py
 ```
 
-会写入测试数据，测试后可用 `database/reset.sql` 重置。
+两个脚本都会写入测试数据，测试后可用 `database/reset.sql` 重置，再执行 `schema.sql`、`seed.sql` 和 `create_admin.py`。
 
-## 7. 目录
+`completion_test.py` 覆盖：
+
+- 报修照片上传/鉴权下载/删除；
+- 学生 Excel 导入、导出；
+- 宿舍分配 Excel 导入；
+- 学生账号创建与登录；
+- 模板和报修/账单/访客导出。
+
+## 7. 附件与 Excel
+
+- 附件目录：`backend/uploads/`，已被 `.gitignore` 忽略；
+- 附件接口：`/api/v1/attachments`、`/upload`、`/{id}`；
+- Excel 模板：`/api/v1/excel/templates/students`、`/templates/assignments`；
+- Excel 导入：`/api/v1/excel/import/students`、`/import/assignments`；
+- Excel 导出：`/api/v1/excel/export/students`、`/assignments`、`/repairs`、`/utility-bills`、`/visitors`。
+
+## 8. 目录
 
 ```text
 app/
