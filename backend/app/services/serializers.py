@@ -75,6 +75,7 @@ def student_dict(db: Session, student: Student) -> dict:
         "status": student.status,
         "building_id": building.id if building else None,
         "building_name": building.name if building else None,
+        "room_id": room.id if room else None,
         "room_no": room.room_no if room else None,
         "bed_no": assignment.bed_no if assignment else None,
     }

@@ -210,6 +210,7 @@ class StudentOut(ORMModel):
     status: str
     building_id: int | None = None
     building_name: str | None = None
+    room_id: int | None = None
     room_no: str | None = None
     bed_no: str | None = None
 

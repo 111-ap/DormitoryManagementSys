@@ -25,14 +25,28 @@
 - [x] 报修照片、访客证件照上传与鉴权下载
 - [x] Excel 学生/宿舍分配导入、多类导出
 - [x] 学生账号创建、管理员重置密码
-- [ ] 前端项目骨架与页面
-- [ ] 完整统计图表
+- [x] 前端项目骨架、登录、角色路由守卫
+- [x] 工作台、账号/院系/楼栋/房间/学生/住宿页面
+- [x] 资产/报修/水电/访客/物品/公告/通知页面
+- [x] 学生 Excel 导入、多类导出、学生账号创建
+- [ ] 宿舍分配 Excel 导入前端入口
+- [ ] 访客证件照上传 UI
 - [ ] Docker 部署
 
 ## 目录结构
 
 ```text
 DormitoryManagementSys/
+├─ frontend/
+│  ├─ src/
+│  │  ├─ api/              # Axios 与业务接口
+│  │  ├─ components/       # 页头、统计卡、状态标签、附件
+│  │  ├─ layouts/          # 侧边栏、顶栏布局
+│  │  ├─ router/           # 路由与角色守卫
+│  │  ├─ stores/           # Pinia 登录态
+│  │  └─ views/            # 登录/工作台/业务页面
+│  ├─ package.json
+│  └─ README.md
 ├─ backend/
 │  ├─ app/                 # FastAPI 应用
 │  │  ├─ core/             # 配置、JWT、权限依赖
@@ -98,9 +112,28 @@ python -m venv .venv
 - 健康检查：<http://127.0.0.1:8000/api/v1/health>
 - 管理员账号与初始密码在 `.env` 的 `ADMIN_USERNAME`、`ADMIN_INITIAL_PASSWORD` 中
 
+## 前端运行
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+前端地址：<http://127.0.0.1:5173>  
+Vite 会将 `/api` 代理到后端 `http://127.0.0.1:8000`。
+
+页面预览：
+
+- [登录页](docs/screenshots/login.png)
+- [工作台](docs/screenshots/dashboard.png)
+- [学生档案](docs/screenshots/students.png)
+- [水电管理](docs/screenshots/utilities.png)
+
 ## 说明
 
 - 详细表结构、字段说明、状态机和权限矩阵见 [数据库设计文档](docs/database-design.md)。
 - 后端分层、认证流程和接口列表见 [后端设计文档](docs/backend-design.md)。
+- 前端页面、路由、设计系统和截图见 [前端设计文档](docs/frontend-design.md)。
 - 当前仓库为公开仓库，禁止提交 `.env`、数据库密码、JWT 密钥、真实学生信息和访客证件照。
 - 登录账号不预置在种子数据中，后续由后端初始化脚本创建，避免在公开仓库中存放默认密码。

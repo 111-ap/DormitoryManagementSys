@@ -48,6 +48,7 @@ def list_repairs(
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
     status: str | None = None,
+    priority: str | None = None,
     room_id: int | None = None,
     handler_id: int | None = None,
     db: Session = Depends(get_db),
@@ -63,6 +64,8 @@ def list_repairs(
             stmt = stmt.where(RepairOrder.room_id.in_(room_ids))
     if status:
         stmt = stmt.where(RepairOrder.status == status)
+    if priority:
+        stmt = stmt.where(RepairOrder.priority == priority)
     if room_id is not None:
         stmt = stmt.where(RepairOrder.room_id == room_id)
     if handler_id is not None:
