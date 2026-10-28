@@ -34,6 +34,7 @@ DormitoryManagementSys/
 │  └─ README.md
 ├─ docs/
 │  ├─ database-design.md  # 数据库设计说明书
+│  ├─ design-change-log.md # 与最初 ER/DFD 的差异记录
 │  └─ reference/          # 需求草图、ER/DFD 参考图片
 ├─ .env.example           # 环境变量模板
 ├─ .gitignore
