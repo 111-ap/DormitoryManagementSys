@@ -138,55 +138,56 @@ onMounted(load)
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 28px 30px;
-  color: #ecfeff;
-  background:
-    radial-gradient(circle at 82% 12%, rgba(94, 234, 212, 0.28), transparent 18rem),
-    linear-gradient(135deg, #0b2a33, #0f4c4f);
-  border-radius: 20px;
-  box-shadow: 0 18px 40px rgba(8, 47, 51, 0.16);
+  padding: 24px 26px;
+  color: #f5f5f5;
+  background: #111111;
+  border: 1px solid #111111;
+  border-radius: 4px;
+  box-shadow: none;
 }
 .dorm-hero-main {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 .hero-icon {
   display: grid;
-  width: 62px;
-  height: 62px;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  color: #062a2d;
-  background: linear-gradient(135deg, #5eead4, #14b8a6);
-  border-radius: 18px;
-  font-size: 30px;
+  color: #f5f5f5;
+  background: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 2px;
+  font-size: 20px;
 }
 .hero-kicker {
-  color: #8fc9c5;
+  color: #999999;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 .hero-room {
-  margin-top: 8px;
-  font-size: 28px;
-  font-weight: 850;
-  letter-spacing: -0.03em;
+  margin-top: 7px;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -0.035em;
 }
 .hero-sub {
-  margin-top: 7px;
-  color: #9fc9c8;
-  font-size: 12px;
+  margin-top: 6px;
+  color: #a3a3a3;
+  font-size: 11px;
 }
 .hero-balance {
   text-align: right;
 }
 .balance-value {
   margin: 8px 0 4px;
-  color: #5eead4;
-  font-size: 28px;
-  font-weight: 800;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 .info-grid {
   display: grid;
@@ -196,46 +197,54 @@ onMounted(load)
 .my-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 9px;
+  gap: 0;
   margin-top: 14px;
+  border-top: 1px solid #e5e5e5;
 }
 .my-action {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 11px;
+  padding: 12px 0;
   text-align: left;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 11px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 0;
   cursor: pointer;
 }
+.my-action:nth-child(odd) {
+  padding-right: 12px;
+}
+.my-action:nth-child(even) {
+  padding-left: 12px;
+  border-left: 1px solid #e5e5e5;
+}
 .my-action:hover {
-  border-color: #a7d9d4;
+  background: #fafafa;
 }
 .my-action-icon {
-  display: grid;
-  width: 32px;
-  height: 32px;
-  place-items: center;
-  color: #0f766e;
-  background: #e8f6f4;
-  border-radius: 8px;
+  color: #737373;
+  background: transparent;
+  border-radius: 0;
+  font-size: 14px;
 }
 .my-action strong {
   display: block;
-  color: #334155;
+  color: #2b2b2b;
   font-size: 11px;
+  font-weight: 600;
 }
 .my-action small {
   display: block;
   margin-top: 2px;
-  color: #94a3b8;
+  color: #999999;
   font-size: 9px;
 }
 .my-action-arrow {
   margin-left: auto;
-  color: #cbd5e1;
+  color: #c4c4c4;
+  font-size: 12px;
 }
 .panel-head {
   display: flex;
@@ -251,37 +260,38 @@ onMounted(load)
 }
 .notice-card {
   padding: 15px;
-  background: #f8fafc;
-  border: 1px solid #edf2f7;
-  border-radius: 13px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
 }
 .notice-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  color: #94a3b8;
-  font-size: 10px;
+  color: #999999;
+  font-size: 9px;
 }
 .notice-card h4 {
   margin: 10px 0 5px;
-  color: #334155;
-  font-size: 13px;
+  color: #2b2b2b;
+  font-size: 12px;
+  font-weight: 600;
 }
 .notice-card p {
   display: -webkit-box;
   margin: 0;
   overflow: hidden;
-  color: #64748b;
-  font-size: 11px;
+  color: #6b6b6b;
+  font-size: 10px;
   line-height: 1.6;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 .notice-author {
   margin-top: 9px;
-  color: #94a3b8;
-  font-size: 10px;
+  color: #999999;
+  font-size: 9px;
 }
 @media (max-width: 900px) {
   .dorm-hero {

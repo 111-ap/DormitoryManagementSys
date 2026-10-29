@@ -107,9 +107,9 @@ onMounted(load)
 <style scoped>
 .attachment-panel {
   padding: 14px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  background: #f7f7f7;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
 }
 .attachment-head {
   display: flex;
@@ -138,17 +138,19 @@ onMounted(load)
   gap: 10px;
   padding: 9px 10px;
   background: #fff;
-  border: 1px solid #edf2f7;
-  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
 }
 .file-icon {
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   place-items: center;
-  color: #0f766e;
-  background: #e8f6f4;
-  border-radius: 8px;
+  color: #666666;
+  background: transparent;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  font-size: 14px;
 }
 .file-meta {
   min-width: 0;

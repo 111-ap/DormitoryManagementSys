@@ -1,5 +1,5 @@
 <template>
-  <div class="stat-card" :class="`tone-${tone}`">
+  <div class="stat-card">
     <div class="stat-icon">
       <component :is="icon" />
     </div>
@@ -17,7 +17,7 @@ defineProps({
   value: { type: [String, Number], default: '—' },
   hint: { type: String, default: '' },
   icon: { type: String, default: 'DataLine' },
-  tone: { type: String, default: 'teal' },
+  tone: { type: String, default: '' },
 })
 </script>
 
@@ -25,71 +25,76 @@ defineProps({
 .stat-card {
   position: relative;
   display: flex;
-  gap: 14px;
-  min-height: 118px;
-  padding: 18px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.045);
+  gap: 13px;
+  min-height: 108px;
+  padding: 17px 18px;
+  background: #ffffff;
+  border-right: 1px solid var(--dms-line);
 }
-.stat-card::after {
-  position: absolute;
-  right: -24px;
-  bottom: -36px;
-  width: 104px;
-  height: 104px;
-  content: '';
-  background: currentColor;
-  border-radius: 50%;
-  opacity: 0.07;
+.stat-card:nth-child(3n),
+.stat-card:last-child {
+  border-right: 0;
+}
+.stat-card:nth-child(-n + 3) {
+  border-bottom: 1px solid var(--dms-line);
 }
 .stat-icon {
-  display: grid;
-  flex: 0 0 42px;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  color: var(--tone);
-  background: color-mix(in srgb, var(--tone) 12%, white);
-  border-radius: 12px;
-  font-size: 20px;
+  flex: 0 0 auto;
+  padding-top: 2px;
+  color: #8a8a8a;
+  font-size: 17px;
+  line-height: 1;
+}
+.stat-content {
+  min-width: 0;
 }
 .stat-label {
-  color: #64748b;
-  font-size: 12px;
-  font-weight: 600;
+  color: var(--dms-muted);
+  font-size: 11px;
+  font-weight: 500;
 }
 .stat-value {
-  margin-top: 7px;
-  color: #0f172a;
+  margin-top: 8px;
+  overflow: hidden;
+  color: var(--dms-ink);
   font-size: 27px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .stat-hint {
-  margin-top: 8px;
-  color: #94a3b8;
-  font-size: 11px;
+  margin-top: 7px;
+  overflow: hidden;
+  color: var(--dms-faint);
+  font-size: 10px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.tone-teal {
-  --tone: #0f766e;
+@media (max-width: 1100px) {
+  .stat-card:nth-child(3n) {
+    border-right: 1px solid var(--dms-line);
+  }
+  .stat-card:nth-child(2n) {
+    border-right: 0;
+  }
+  .stat-card:nth-child(-n + 3) {
+    border-bottom: 0;
+  }
+  .stat-card:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--dms-line);
+  }
 }
-.tone-blue {
-  --tone: #2563eb;
-}
-.tone-amber {
-  --tone: #d97706;
-}
-.tone-rose {
-  --tone: #e11d48;
-}
-.tone-violet {
-  --tone: #7c3aed;
-}
-.tone-slate {
-  --tone: #475569;
+@media (max-width: 700px) {
+  .stat-card,
+  .stat-card:nth-child(2n) {
+    border-right: 0;
+    border-bottom: 1px solid var(--dms-line);
+  }
+  .stat-card:last-child {
+    border-bottom: 0;
+  }
 }
 </style>

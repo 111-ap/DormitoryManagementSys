@@ -5,7 +5,7 @@
         <div class="brand-mark"><el-icon><House /></el-icon></div>
         <div>
           <strong>宿管通</strong>
-          <span>Dormitory Management System</span>
+          <span>高校学生宿舍信息管理系统</span>
         </div>
       </div>
 
@@ -132,8 +132,8 @@ async function submit() {
 .login-page {
   display: grid;
   min-height: 100vh;
-  grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
-  background: #f8fafc;
+  grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+  background: #f4f5f6;
 }
 .login-brand {
   position: relative;
@@ -142,22 +142,12 @@ async function submit() {
   justify-content: space-between;
   padding: 44px 6vw 36px;
   overflow: hidden;
-  color: #ecfeff;
-  background:
-    radial-gradient(circle at 78% 18%, rgba(94, 234, 212, 0.23), transparent 21rem),
-    radial-gradient(circle at 8% 92%, rgba(14, 165, 233, 0.16), transparent 22rem),
-    linear-gradient(145deg, #071a24 0%, #0b2a33 52%, #0f3f45 100%);
+  color: #f5f5f5;
+  background: #111111;
+  border-right: 1px solid #242424;
 }
 .login-brand::before {
-  position: absolute;
-  top: 20%;
-  right: -120px;
-  width: 380px;
-  height: 380px;
-  content: '';
-  border: 1px solid rgba(94, 234, 212, 0.16);
-  border-radius: 50%;
-  box-shadow: 0 0 0 42px rgba(94, 234, 212, 0.035), 0 0 0 88px rgba(94, 234, 212, 0.02);
+  display: none;
 }
 .brand-top {
   position: relative;
@@ -168,87 +158,92 @@ async function submit() {
 }
 .brand-mark {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   place-items: center;
-  color: #062a2d;
-  background: linear-gradient(135deg, #5eead4, #14b8a6);
-  border-radius: 13px;
-  font-size: 22px;
-  box-shadow: 0 10px 26px rgba(20, 184, 166, 0.24);
+  color: #111111;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  font-size: 19px;
+  box-shadow: none;
 }
 .brand-top strong {
   display: block;
-  font-size: 19px;
-  letter-spacing: 0.12em;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 .brand-top span {
   display: block;
-  margin-top: 3px;
-  color: #7dd3c7;
+  margin-top: 4px;
+  color: #999999;
   font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 .brand-copy {
   position: relative;
   z-index: 1;
   max-width: 620px;
-  margin: 54px 0 38px;
+  margin: 48px 0 34px;
 }
 .brand-copy .eyebrow {
-  color: #5eead4;
+  display: none;
 }
 .brand-copy h1 {
-  margin: 14px 0 18px;
-  color: #f0fdfa;
-  font-size: clamp(34px, 4.1vw, 58px);
-  font-weight: 850;
-  line-height: 1.13;
-  letter-spacing: -0.045em;
+  margin: 0 0 20px;
+  color: #f7f7f7;
+  font-size: clamp(34px, 4.2vw, 58px);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.05em;
 }
 .brand-desc {
-  max-width: 500px;
+  max-width: 470px;
   margin: 0;
-  color: #9fc9c8;
-  font-size: 14px;
+  color: #a3a3a3;
+  font-size: 13px;
   line-height: 1.8;
 }
 .feature-grid {
   position: relative;
   z-index: 1;
   display: grid;
-  max-width: 680px;
+  max-width: 660px;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 0 24px;
+  border-top: 1px solid #2b2b2b;
 }
 .feature-item {
   display: flex;
   gap: 10px;
-  padding: 14px;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(153, 246, 228, 0.1);
-  border-radius: 13px;
-  backdrop-filter: blur(8px);
+  padding: 14px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #2b2b2b;
+  border-radius: 0;
+  backdrop-filter: none;
 }
 .feature-icon {
-  display: grid;
-  flex: 0 0 32px;
-  width: 32px;
-  height: 32px;
-  place-items: center;
-  color: #5eead4;
-  background: rgba(45, 212, 191, 0.1);
-  border-radius: 9px;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding-top: 1px;
+  color: #d4d4d4;
+  background: transparent;
+  border-radius: 0;
+  font-size: 15px;
 }
 .feature-item strong {
-  color: #e6fffb;
-  font-size: 12px;
+  color: #dedede;
+  font-size: 11px;
+  font-weight: 600;
 }
 .feature-item p {
   margin: 4px 0 0;
-  color: #87b7b6;
-  font-size: 11px;
+  color: #8f8f8f;
+  font-size: 10px;
   line-height: 1.5;
 }
 .brand-footer {
@@ -257,19 +252,19 @@ async function submit() {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 38px;
-  color: #6f9e9e;
-  font-size: 11px;
+  margin-top: 34px;
+  color: #7a7a7a;
+  font-size: 10px;
 }
 .status-dot {
-  width: 7px;
-  height: 7px;
-  background: #34d399;
+  width: 5px;
+  height: 5px;
+  background: #d4d4d4;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12);
+  box-shadow: none;
 }
 .dot-separator {
-  color: #3f6265;
+  color: #454545;
 }
 .login-panel {
   display: flex;
@@ -277,40 +272,47 @@ async function submit() {
   align-items: center;
   justify-content: center;
   padding: 38px clamp(24px, 5vw, 74px);
+  background: #ffffff;
 }
 .login-card {
-  width: min(100%, 410px);
+  width: min(100%, 390px);
 }
 .mobile-brand {
   display: none;
   align-items: center;
   gap: 10px;
-  margin-bottom: 26px;
-  color: #0f766e;
-  font-size: 19px;
-  letter-spacing: 0.08em;
+  margin-bottom: 30px;
+  color: #111111;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+.mobile-brand .brand-mark {
+  color: #ffffff;
+  background: #111111;
+  border-color: #111111;
 }
 .login-card h2 {
-  margin: 8px 0 0;
-  color: #0f172a;
+  margin: 0;
+  color: #111111;
   font-size: 30px;
-  letter-spacing: -0.035em;
+  font-weight: 650;
+  letter-spacing: -0.04em;
 }
 .login-subtitle {
   margin: 10px 0 28px;
-  color: #64748b;
-  font-size: 13px;
+  color: #777777;
+  font-size: 12px;
   line-height: 1.7;
 }
 .login-button {
   width: 100%;
-  height: 48px;
-  margin-top: 6px;
+  height: 46px;
+  margin-top: 8px;
   border: 0;
-  border-radius: 11px;
-  font-size: 14px;
-  font-weight: 700;
-  box-shadow: 0 12px 24px rgba(15, 118, 110, 0.18);
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: none;
 }
 .button-icon {
   margin-left: 4px;
@@ -320,22 +322,23 @@ async function submit() {
   gap: 8px;
   margin-top: 26px;
   padding: 12px 13px;
-  color: #64748b;
-  background: #f1f5f9;
-  border-radius: 10px;
-  font-size: 11px;
+  color: #707070;
+  background: #f6f6f6;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+  font-size: 10px;
   line-height: 1.6;
 }
 .login-tip .el-icon {
   flex: 0 0 auto;
   margin-top: 2px;
-  color: #0f766e;
+  color: #555555;
 }
 .copyright {
   margin-top: 38px;
-  color: #94a3b8;
+  color: #9a9a9a;
   font-size: 10px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 @media (max-width: 900px) {
   .login-page {
@@ -346,9 +349,13 @@ async function submit() {
   }
   .login-panel {
     min-height: 100vh;
-    background:
-      radial-gradient(circle at 10% 0%, rgba(15, 118, 110, 0.1), transparent 22rem),
-      #f8fafc;
+    background: #f4f5f6;
+  }
+  .login-card {
+    padding: 30px 26px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
   }
   .mobile-brand {
     display: flex;

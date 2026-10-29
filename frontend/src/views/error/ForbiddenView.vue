@@ -22,7 +22,7 @@ const router = useRouter()
   text-align: center;
 }
 .error-code {
-  color: #0f766e;
+  color: #111111;
   font-size: 96px;
   font-weight: 900;
   letter-spacing: -0.08em;

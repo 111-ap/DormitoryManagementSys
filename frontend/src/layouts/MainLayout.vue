@@ -6,7 +6,7 @@
         <div class="brand-mark"><el-icon><House /></el-icon></div>
         <div v-show="!collapsed" class="brand-text">
           <strong>宿管通</strong>
-          <span>Dormitory OS</span>
+          <span>宿舍信息管理</span>
         </div>
       </div>
 
@@ -184,10 +184,9 @@ onUnmounted(() => {
   display: flex;
   width: 252px;
   flex-direction: column;
-  background:
-    radial-gradient(circle at 15% 0%, rgba(45, 212, 191, 0.16), transparent 17rem),
-    var(--dms-sidebar);
-  color: #e2e8f0;
+  background: var(--dms-sidebar);
+  color: #e8e8e8;
+  border-right: 1px solid #232323;
   transition: width 0.22s ease, transform 0.22s ease;
 }
 .app-sidebar.collapsed {
@@ -203,14 +202,15 @@ onUnmounted(() => {
 }
 .brand-mark {
   display: grid;
-  flex: 0 0 38px;
-  width: 38px;
-  height: 38px;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
   place-items: center;
-  color: #0b1f2a;
-  background: linear-gradient(135deg, #5eead4, #14b8a6);
-  border-radius: 12px;
-  font-size: 20px;
+  color: #111111;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  font-size: 18px;
 }
 .brand-text {
   display: flex;
@@ -218,35 +218,33 @@ onUnmounted(() => {
   line-height: 1.15;
 }
 .brand-text strong {
-  color: #f0fdfa;
-  font-size: 17px;
-  letter-spacing: 0.08em;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0.02em;
 }
 .brand-text span {
   margin-top: 3px;
-  color: #7dd3c7;
+  color: #8a8a8a;
   font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 .role-card {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 0 16px 8px;
-  padding: 9px 11px;
-  color: #a7f3d0;
-  background: rgba(45, 212, 191, 0.08);
-  border: 1px solid rgba(94, 234, 212, 0.12);
-  border-radius: 10px;
-  font-size: 12px;
+  padding: 8px 10px;
+  color: #b9b9b9;
+  background: transparent;
+  border: 1px solid #2c2c2c;
+  border-radius: 2px;
+  font-size: 11px;
 }
 .role-dot {
-  width: 7px;
-  height: 7px;
-  background: #2dd4bf;
+  width: 5px;
+  height: 5px;
+  background: #d4d4d4;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.12);
 }
 .menu-scroll {
   flex: 1;
@@ -257,51 +255,51 @@ onUnmounted(() => {
   border-right: 0;
 }
 .side-menu :deep(.el-menu-item) {
-  height: 44px;
-  margin: 3px 0;
-  color: #b9c9cf;
-  border-radius: 10px;
-  font-size: 13px;
+  height: 40px;
+  margin: 2px 0;
+  color: #a3a3a3;
+  border-radius: 2px;
+  font-size: 12px;
 }
 .side-menu :deep(.el-menu-item:hover) {
-  color: #f0fdfa;
-  background: rgba(45, 212, 191, 0.08);
+  color: #ffffff;
+  background: #1e1e1e;
 }
 .side-menu :deep(.el-menu-item.is-active) {
-  color: #0b1f2a;
-  background: linear-gradient(135deg, #5eead4, #2dd4bf);
-  font-weight: 700;
+  color: #111111;
+  background: #ffffff;
+  font-weight: 600;
 }
 .side-menu :deep(.el-menu-item .el-icon) {
-  font-size: 17px;
+  font-size: 16px;
 }
 .menu-group-title {
-  padding: 16px 12px 6px;
-  color: #66818b;
+  padding: 15px 12px 5px;
+  color: #6f6f6f;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 .sidebar-footer {
   padding: 12px;
-  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  border-top: 1px solid #252525;
 }
 .collapse-btn {
   display: flex;
   width: 100%;
   align-items: center;
   gap: 10px;
-  padding: 10px 12px;
-  color: #8fa6ae;
+  padding: 9px 11px;
+  color: #8a8a8a;
   background: transparent;
   border: 0;
-  border-radius: 9px;
+  border-radius: 2px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 11px;
 }
 .collapse-btn:hover {
-  color: #e2e8f0;
-  background: rgba(148, 163, 184, 0.08);
+  color: #ffffff;
+  background: #1e1e1e;
 }
 .app-main {
   display: flex;
@@ -325,9 +323,9 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
-  background: rgba(246, 248, 251, 0.86);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--dms-line);
+  backdrop-filter: blur(10px);
 }
 .header-left,
 .header-right {
@@ -336,32 +334,31 @@ onUnmounted(() => {
   gap: 14px;
 }
 .header-kicker {
-  color: #94a3b8;
+  color: #949494;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 .header-title {
   margin-top: 2px;
-  color: #0f172a;
-  font-size: 18px;
-  font-weight: 800;
+  color: var(--dms-ink);
+  font-size: 17px;
+  font-weight: 700;
 }
 .icon-button {
   display: inline-grid;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   place-items: center;
-  color: #475569;
+  color: #555555;
   background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border: 1px solid var(--dms-line);
+  border-radius: 3px;
 }
 .icon-button:hover {
-  color: var(--dms-primary);
-  border-color: #a7d9d4;
+  color: #111111;
+  border-color: #a8a8a8;
 }
 .notification-button {
   padding-top: 5px;
@@ -370,25 +367,25 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 5px 8px 5px 5px;
+  padding: 4px 7px 4px 4px;
   background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  border: 1px solid var(--dms-line);
+  border-radius: 3px;
   cursor: pointer;
 }
 .user-chip:hover {
-  border-color: #a7d9d4;
+  border-color: #a8a8a8;
 }
 .avatar {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   place-items: center;
   color: #fff;
-  background: linear-gradient(135deg, #0f766e, #14b8a6);
-  border-radius: 9px;
-  font-size: 14px;
-  font-weight: 800;
+  background: #111111;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 700;
 }
 .user-meta {
   display: flex;

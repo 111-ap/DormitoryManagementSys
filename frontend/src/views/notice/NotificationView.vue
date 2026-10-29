@@ -135,29 +135,31 @@ onMounted(load)
   position: relative;
   display: flex;
   gap: 12px;
-  padding: 14px 16px;
+  padding: 13px 15px;
   background: #fff;
-  border: 1px solid #edf2f7;
-  border-radius: 12px;
+  border: 1px solid var(--dms-line);
+  border-radius: 3px;
   cursor: pointer;
-  transition: border-color 0.18s ease, background 0.18s ease;
+  transition: border-color 0.15s ease, background 0.15s ease;
 }
 .notification-card:hover {
-  border-color: #b7e3de;
+  border-color: #b6b6b6;
 }
 .notification-card.unread {
-  background: #f6fdfc;
-  border-color: #d5f1ed;
+  background: #fafafa;
+  border-color: #d6d6d6;
 }
 .notification-type {
   display: grid;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
   place-items: center;
-  color: #0f766e;
-  background: #e8f6f4;
-  border-radius: 10px;
+  color: #666666;
+  background: transparent;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  font-size: 14px;
 }
 .notification-body {
   min-width: 0;
@@ -170,27 +172,28 @@ onMounted(load)
   gap: 12px;
 }
 .notification-head strong {
-  color: #334155;
-  font-size: 13px;
+  color: #2b2b2b;
+  font-size: 12px;
+  font-weight: 600;
 }
 .notification-head span {
   flex: 0 0 auto;
-  color: #94a3b8;
-  font-size: 10px;
+  color: #999999;
+  font-size: 9px;
 }
 .notification-body p {
   margin: 5px 0 0;
-  color: #64748b;
-  font-size: 11px;
+  color: #6b6b6b;
+  font-size: 10px;
   line-height: 1.6;
 }
 .unread-dot {
   position: absolute;
-  top: 17px;
-  right: 14px;
-  width: 7px;
-  height: 7px;
-  background: #14b8a6;
+  top: 16px;
+  right: 12px;
+  width: 5px;
+  height: 5px;
+  background: #111111;
   border-radius: 50%;
 }
 </style>

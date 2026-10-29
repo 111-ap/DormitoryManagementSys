@@ -365,19 +365,20 @@ onMounted(async () => {
   gap: 10px;
   padding: 26px 16px;
   text-align: center;
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
-  border-radius: 14px;
+  background: #f7f7f7;
+  border: 1px dashed #cfcfcf;
+  border-radius: 3px;
 }
 .import-icon {
   display: grid;
-  width: 54px;
-  height: 54px;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  color: #0f766e;
-  background: #e8f6f4;
-  border-radius: 15px;
-  font-size: 26px;
+  color: #555555;
+  background: transparent;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  font-size: 20px;
 }
 .import-box h3 {
   margin: 2px 0 0;

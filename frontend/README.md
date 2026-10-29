@@ -2,6 +2,8 @@
 
 Vue 3 + Vite + JavaScript + Element Plus + Pinia + Vue Router + ECharts。
 
+视觉方向：冷灰、黑、白三色纸面；hairline 分割线、扁平表面、小圆角和单一冷钢蓝强调色。设计原则参考 [Hallmark](https://github.com/Nutlope/hallmark) 的 Ink / Grid 材质。
+
 ## 1. 环境
 
 - Node.js 20.19+ / 当前 Node 24

@@ -117,16 +117,16 @@ async function submit() {
 }
 .profile-avatar {
   display: grid;
-  width: 78px;
-  height: 78px;
+  width: 62px;
+  height: 62px;
   margin: 4px auto 14px;
   place-items: center;
   color: #fff;
-  background: linear-gradient(135deg, #0f766e, #2dd4bf);
-  border-radius: 24px;
-  font-size: 30px;
-  font-weight: 800;
-  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.18);
+  background: #111111;
+  border-radius: 2px;
+  font-size: 25px;
+  font-weight: 700;
+  box-shadow: none;
 }
 .profile-card h3 {
   margin: 0;

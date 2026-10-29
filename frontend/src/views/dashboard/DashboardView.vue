@@ -191,15 +191,15 @@ function initCharts() {
       const counts = repairStatusCounts()
       occupancyChart.setOption({
         tooltip: { trigger: 'item' },
-        color: ['#f59e0b', '#0f766e', '#10b981', '#94a3b8'],
+        color: ['#a3a3a3', '#111111', '#40576b', '#d4d4d4'],
         series: [
           {
             type: 'pie',
             radius: ['48%', '72%'],
             center: ['50%', '50%'],
             avoidLabelOverlap: true,
-            itemStyle: { borderColor: '#fff', borderWidth: 3, borderRadius: 6 },
-            label: { formatter: '{b}\n{c}', color: '#475569', fontSize: 11 },
+            itemStyle: { borderColor: '#fff', borderWidth: 2, borderRadius: 0 },
+            label: { formatter: '{b}\n{c}', color: '#4a4a4a', fontSize: 11 },
             data: Object.entries(counts).map(([name, value]) => ({ name, value })),
           },
         ],
@@ -215,32 +215,33 @@ function initCharts() {
       }
       occupancyChart.setOption({
         tooltip: { trigger: 'axis' },
-        legend: { bottom: 0, textStyle: { color: '#64748b', fontSize: 11 } },
+        legend: { bottom: 0, textStyle: { color: '#6b6b6b', fontSize: 11 } },
         grid: { left: 12, right: 18, top: 18, bottom: 38, containLabel: true },
         xAxis: {
           type: 'category',
           data: [...byBuilding.keys()],
-          axisLine: { lineStyle: { color: '#e2e8f0' } },
-          axisLabel: { color: '#64748b', fontSize: 11 },
+          axisLine: { lineStyle: { color: '#dedede' } },
+          axisTick: { show: false },
+          axisLabel: { color: '#6b6b6b', fontSize: 11 },
         },
         yAxis: {
           type: 'value',
-          splitLine: { lineStyle: { color: '#f1f5f9' } },
-          axisLabel: { color: '#94a3b8', fontSize: 10 },
+          splitLine: { lineStyle: { color: '#efefef' } },
+          axisLabel: { color: '#969696', fontSize: 10 },
         },
         series: [
           {
             name: '在住',
             type: 'bar',
-            barWidth: 18,
-            itemStyle: { color: '#0f766e', borderRadius: [5, 5, 0, 0] },
+            barWidth: 16,
+            itemStyle: { color: '#111111', borderRadius: 0 },
             data: [...byBuilding.values()].map((item) => item.occupied),
           },
           {
             name: '总床位',
             type: 'bar',
-            barWidth: 18,
-            itemStyle: { color: '#ccfbf1', borderRadius: [5, 5, 0, 0] },
+            barWidth: 16,
+            itemStyle: { color: '#d4d4d4', borderRadius: 0 },
             data: [...byBuilding.values()].map((item) => item.capacity),
           },
         ],
@@ -253,15 +254,15 @@ function initCharts() {
     const counts = repairStatusCounts()
     repairChart.setOption({
       tooltip: { trigger: 'item' },
-      color: ['#f59e0b', '#0f766e', '#10b981', '#94a3b8'],
-      legend: { bottom: 0, textStyle: { color: '#64748b', fontSize: 11 } },
+      color: ['#a3a3a3', '#111111', '#40576b', '#d4d4d4'],
+      legend: { bottom: 0, textStyle: { color: '#6b6b6b', fontSize: 11 } },
       series: [
         {
           type: 'pie',
           radius: ['42%', '68%'],
           center: ['50%', '46%'],
-          itemStyle: { borderColor: '#fff', borderWidth: 3, borderRadius: 6 },
-          label: { formatter: '{b}\n{c}', color: '#475569', fontSize: 11 },
+          itemStyle: { borderColor: '#fff', borderWidth: 2, borderRadius: 0 },
+          label: { formatter: '{b}\n{c}', color: '#4a4a4a', fontSize: 11 },
           data: Object.entries(counts).map(([name, value]) => ({ name, value })),
         },
       ],
@@ -347,17 +348,17 @@ onUnmounted(() => {
   align-items: center;
   gap: 10px;
   padding: 11px 4px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #ededed;
 }
 .notice-row:last-child,
 .notification-row:last-child {
   border-bottom: 0;
 }
 .notice-dot {
-  flex: 0 0 7px;
-  width: 7px;
-  height: 7px;
-  background: #2dd4bf;
+  flex: 0 0 5px;
+  width: 5px;
+  height: 5px;
+  background: #111111;
   border-radius: 50%;
 }
 .notice-main,
@@ -368,9 +369,9 @@ onUnmounted(() => {
 .notice-title,
 .notification-title {
   overflow: hidden;
-  color: #334155;
+  color: #2b2b2b;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -378,72 +379,79 @@ onUnmounted(() => {
 .notification-sub {
   margin-top: 4px;
   overflow: hidden;
-  color: #94a3b8;
-  font-size: 11px;
+  color: #969696;
+  font-size: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .notification-icon {
   display: grid;
-  flex: 0 0 30px;
-  width: 30px;
-  height: 30px;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
   place-items: center;
-  color: #0f766e;
-  background: #e8f6f4;
-  border-radius: 8px;
+  color: #666666;
+  background: transparent;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  font-size: 13px;
 }
 .notification-time {
   flex: 0 0 auto;
-  color: #94a3b8;
-  font-size: 10px;
+  color: #a0a0a0;
+  font-size: 9px;
 }
 .quick-actions {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--dms-line);
+  border-radius: 5px;
 }
 .quick-action {
   display: flex;
   align-items: center;
-  gap: 11px;
-  padding: 14px;
+  gap: 10px;
+  padding: 14px 16px;
   text-align: left;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--dms-line);
+  border-radius: 0;
   cursor: pointer;
-  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  transition: background-color 0.15s ease;
+}
+.quick-action:last-child {
+  border-right: 0;
 }
 .quick-action:hover {
-  border-color: #a7d9d4;
-  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.08);
-  transform: translateY(-2px);
+  background: #fafafa;
 }
 .quick-icon {
-  display: grid;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  color: #0f766e;
-  background: #e8f6f4;
-  border-radius: 10px;
+  flex: 0 0 auto;
+  color: #737373;
+  background: transparent;
+  border-radius: 0;
+  font-size: 15px;
 }
 .quick-action strong {
   display: block;
-  color: #334155;
-  font-size: 12px;
+  color: #222222;
+  font-size: 11px;
+  font-weight: 600;
 }
 .quick-action small {
   display: block;
   margin-top: 3px;
-  color: #94a3b8;
-  font-size: 10px;
+  color: #999999;
+  font-size: 9px;
 }
 .quick-arrow {
   margin-left: auto;
-  color: #cbd5e1;
+  color: #c4c4c4;
+  font-size: 12px;
 }
 @media (max-width: 1100px) {
   .dashboard-grid,
@@ -453,10 +461,24 @@ onUnmounted(() => {
   .quick-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .quick-action:nth-child(2n) {
+    border-right: 0;
+  }
+  .quick-action:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--dms-line);
+  }
 }
 @media (max-width: 640px) {
   .quick-actions {
     grid-template-columns: 1fr;
+  }
+  .quick-action,
+  .quick-action:nth-child(2n) {
+    border-right: 0;
+    border-bottom: 1px solid var(--dms-line);
+  }
+  .quick-action:last-child {
+    border-bottom: 0;
   }
   .chart {
     height: 230px;
